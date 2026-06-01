@@ -1,0 +1,987 @@
+                /* Reset and Base Styles */
+                
+                * {
+                    box-sizing: border-box;
+                    margin: 0;
+                    padding: 0;
+                }
+                
+                body {
+                    font-family: 'Almoni Neue DL 40 AAA', sans-serif;
+                    direction: rtl;
+                    /* Right-to-Left layout */
+                    background-color: #FDFDFD;
+                    /* Optional: Set a background color */
+                    margin: 0;
+                    line-height: normal;
+                }
+                /* Import Fonts using @font-face */
+                /* CSS Variables for Consistency */
+                
+                 :root {
+                    --primary-color: #E93380;
+                    --secondary-color: #3F3F3F;
+                    --background-color: #FDFDFD;
+                    --font-family-base: 'Almoni Neue DL 40 AAA', sans-serif;
+                    --font-family-regular: 'Almoni Regular', sans-serif;
+                    --font-family-bold: 'Almoni Bold', sans-serif;
+                    --font-family-medium: 'Almoni Tzar Medium', sans-serif;
+                    --border-color: #ccc;
+                    --hover-background: #f0f0f0;
+                }
+                /* Header Styles */
+                
+                .main-header {
+                    width: 100%;
+                    position: relative;
+                    backdrop-filter: blur(60px);
+                    background-color: rgba(253, 253, 253, 0.75);
+                    height: 100px;
+                    text-align: right;
+                    font-size: 19px;
+                    color: var(--secondary-color);
+                    font-family: var(--font-family-base);
+                }
+                
+                .header-container {
+                    width: 100%;
+                    max-width: 1920px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 40px;
+                    padding: 0 20px;
+                }
+                /* Logo */
+                
+                .header-logo img {
+                    width: 140px;
+                    height: 50px;
+                    flex-shrink: 0;
+                }
+                /* Navigation Menu */
+                
+                .navigation {
+                    flex-grow: 1;
+                    margin-left: 40px;
+                }
+                
+                .main-menu {
+                    list-style: none;
+                    display: flex;
+                    align-items: center;
+                    gap: 30px;
+                    background-color: white;
+                    padding: 0 20px;
+                    border-radius: 8px;
+                }
+                
+                .menu-item {
+                    text-decoration: none;
+                    color: var(--black, #3F3F3F);
+                    /* Text color */
+                    text-align: right;
+                    /* Right-aligned text */
+                    -webkit-line-clamp: 1;
+                    line-height: 115%;
+                    /* 21.85px */
+                    letter-spacing: 0.19px;
+                    /* Slight letter spacing */
+                    font-family: "Almoni Neue DL 4.0 AAA";
+                    /* Custom font */
+                    font-size: 19px;
+                    font-style: normal;
+                    font-weight: 400;
+                    -webkit-text-stroke: 0px transparent;
+                    /* For smooth rendering */
+                    /* Text edge for a clean cut-off */
+                }
+                
+                .menu-item:hover {
+                    background-color: var(--hover-background);
+                }
+                /* Dropdown Menu */
+                
+                .dropdown-btn {
+                    margin-left: 5px;
+                    display: flex;
+                    align-items: center;
+                    cursor: pointer;
+                    transition: transform 0.3s ease;
+                }
+                
+                .menu-item-dropdown:hover .dropdown-btn {
+                    transform: rotate(180deg);
+                }
+                
+                .dropdown-content {
+                    display: none;
+                    position: absolute;
+                    top: 100%;
+                    right: 0;
+                    background-color: white;
+                    min-width: 160px;
+                    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+                    border-radius: 4px;
+                    z-index: 1;
+                }
+                
+                .dropdown-content li {
+                    list-style: none;
+                }
+                
+                .dropdown-content li a {
+                    color: var(--secondary-color);
+                    padding: 12px 16px;
+                    text-decoration: none;
+                    display: block;
+                    font-family: var(--font-family-base);
+                    transition: background-color 0.3s ease;
+                }
+                
+                .dropdown-content li a:hover {
+                    background-color: var(--hover-background);
+                }
+                
+                .menu-item-dropdown:hover .dropdown-content {
+                    display: block;
+                }
+                /* Header Controls: Language Switcher, Shopping Bag, Separator, Search */
+                
+                .header-controls {
+                    display: flex;
+                    align-items: center;
+                    gap: 24px;
+                }
+                
+                .language-switcher {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                }
+                
+                .English_Link {
+                    position: relative;
+                    font-size: 19px;
+                    letter-spacing: 0.01em;
+                    line-height: 115%;
+                    font-family: 'Almoni Neue DL 40 AAA';
+                    color: #3f3f3f;
+                    text-align: right;
+                }
+                
+                .Arbic_Link {
+                    position: relative;
+                    font-size: 19px;
+                    letter-spacing: 0.01em;
+                    line-height: 115%;
+                    font-family: 'Almoni Neue DL 40 AAA';
+                    color: #3f3f3f;
+                    text-align: right;
+                }
+                
+                .language-link:hover {
+                    background-color: var(--hover-background);
+                }
+                
+                .separator-line {
+                    width: 1px;
+                    height: 14px;
+                    background-color: #dfdfdf;
+                }
+                /* Icons */
+                
+                .shopping-bag img,
+                .search-button img {
+                    width: 20px;
+                    height: 20px;
+                    transition: transform 0.3s ease;
+                    display: flex;
+                    width: 20px;
+                    height: 20px;
+                    padding: 0.922px 1px 0.983px 1px;
+                    justify-content: center;
+                    align-items: center;
+                }
+                
+                .shopping-bag img:hover,
+                .search-button img:hover {
+                    transform: scale(1.1);
+                }
+                /* Search */
+                
+                .search-container {
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+                }
+                
+                .search-input {
+                    padding: 8px 12px 8px 40px;
+                    border: 1px solid var(--border-color);
+                    border-radius: 4px;
+                    font-size: 17px;
+                    width: 200px;
+                    transition: width 0.3s ease, border-color 0.3s ease;
+                }
+                
+                .search-input:focus {
+                    outline: none;
+                    border-color: var(--primary-color);
+                    width: 250px;
+                }
+                
+                .search-button {
+                    position: absolute;
+                    left: 10px;
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    padding: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                /* Buttons */
+                
+                .button,
+                .learn-more-btn,
+                .register-btn {
+                    background: var(--primary-color);
+                    color: white;
+                    border-radius: 8px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    padding: 10px 20px;
+                    font-family: var(--font-family-medium);
+                    font-size: 17px;
+                    font-weight: 700;
+                    transition: background-color 0.3s ease;
+                }
+                
+                .button:hover,
+                .learn-more-btn:hover,
+                .register-btn:hover {
+                    background: #d62a72;
+                }
+                
+                .line-div_Black {
+                    width: 1px;
+                    height: 13px;
+                    background: black;
+                }
+                /* Accessibility */
+                
+                .language-link:focus,
+                .menu-item:focus,
+                .search-input:focus,
+                .search-button:focus,
+                .dropdown-content li a:focus,
+                .btnBuy:focus,
+                .learn-more-btn:focus,
+                .register-btn:focus {
+                    outline: 2px solid var(--primary-color);
+                    outline-offset: 2px;
+                }
+                /* Responsive Design */
+                
+                @media (max-width: 1200px) {
+                    .header-container {
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 20px;
+                    }
+                    .main-menu {
+                        flex-wrap: wrap;
+                        gap: 20px;
+                        justify-content: center;
+                    }
+                    .search-input {
+                        width: 150px;
+                    }
+                    .search-input:focus {
+                        width: 200px;
+                    }
+                }
+                
+                @media (max-width: 768px) {
+                    .header-container {
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 10px;
+                    }
+                    .main-menu {
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 15px;
+                    }
+                    .search-input {
+                        width: 100%;
+                    }
+                    .search-input:focus {
+                        width: 100%;
+                    }
+                }
+                /* Additional responsive adjustments for sections */
+                
+                .topSection,
+                .articleSection,
+                .productSection,
+                .promoBanner {
+                    padding: 30px 10px;
+                }
+                
+                .articleSection .content-container,
+                .ArticleSection2 .personal-support,
+                .promoBanner .promo-content {
+                    align-items: center;
+                }
+                
+                .promoBanner .promo-title {
+                    font-size: 40px;
+                }
+                
+                .promoBanner .promo-actions {
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 20px;
+                }
+                
+                .promoBanner .promo-actions .register-btn,
+                .promoBanner .promo-actions .email-input {
+                    width: 100%;
+                }
+                /* Main Content Styles */
+                /* (Assuming these are additional sections beyond the header) */
+                /* General Styles */
+                /* Top Section Styling */
+                
+                .topSection {
+                    text-align: right;
+                    padding: 20px;
+                    background-color: #f9f9f9;
+                }
+                
+                .mainHeader {
+                    color: var(--black, #3F3F3F);
+                    text-align: right;
+                    /* h1 desktop */
+                    font-family: "Almoni Tzar DL 4.0 AAA";
+                    font-size: 100px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 75%;
+                }
+                /* Header Row Styles */
+                
+                .header-row {
+                    display: inline-flex;
+                    align-items: right;
+                    justify-content: flex-end;
+                    gap: 40px;
+                    margin-top: 20px;
+                }
+                /* Subheader Section */
+                
+                .subHeader-container {
+                    max-width: 395px;
+                }
+                /* Button Styles */
+                
+                .buttonContactUs {
+                    width: 185px;
+                    height: 50px;
+                    background-color: #e93380;
+                    color: white;
+                    font-size: 17px;
+                    font-weight: 700;
+                    text-align: center;
+                    border: none;
+                    border-radius: 8px;
+                    cursor: pointer;
+                }
+                
+                .buttonContactUs:hover {
+                    background-color: #d02273;
+                    transition: background-color 0.3s ease;
+                }
+                /* Image Styling */
+                
+                .imgNum1 {
+                    width: 100%;
+                    position: relative;
+                    max-width: 100%;
+                    overflow: hidden;
+                    height: 726px;
+                    object-fit: cover;
+                    line-height: normal;
+                }
+                /* Article Section Styles */
+                
+                .articleSection {
+                    display: inline-flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    gap: 185px;
+                }
+                
+                .groupPhoto {
+                    width: 100%;
+                    position: relative;
+                    border-radius: 8px;
+                    height: 556px;
+                    object-fit: cover;
+                }
+                
+                .content-container {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    gap: 16px;
+                }
+                
+                .subHeader {
+                    text-align: right;
+                    color: #3F3F3F;
+                    font-size: 48px;
+                    font-family: 'Almoni Tzar DL 4.0 AAA', sans-serif;
+                    font-weight: 500;
+                    line-height: 1.2;
+                }
+                
+                .features-section {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: right;
+                    gap: 20px;
+                    position: relative;
+                }
+                
+                .features-row {
+                    display: inline-flex;
+                    gap: 40px;
+                }
+                
+                .itemArticle {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 10px;
+                    width: 30%;
+                    position: relative
+                }
+                
+                .articleTitle {
+                    color: var(--black, #3F3F3F);
+                    text-align: right;
+                    /* tab bold_desktop */
+                    font-family: "Almoni Neue DL 4.0 AAA";
+                    font-size: 19px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 120%;
+                    /* 22.8px */
+                    letter-spacing: 0.19px;
+                }
+                
+                .feature-icon {
+                    width: 50px;
+                    height: 50px;
+                }
+                
+                .description-button {
+                    display: inline-block;
+                    justify-content: flex-end;
+                    /* Aligns the button to the right */
+                    align-items: center;
+                    /* Vertical alignment */
+                    gap: 24px;
+                    /* Optional: Adjusts spacing between multiple elements if necessary */
+                }
+                
+                .description-text {
+                    text-align: right;
+                    color: #3F3F3F;
+                    font-size: 17px;
+                    font-family: 'Almoni Neue DL 4.0 AAA', sans-serif;
+                    font-weight: 400;
+                    line-height: 1.4;
+                }
+                
+                .learn-more-btn {
+                    width: 185px;
+                    height: 50px;
+                    background: #E93380;
+                    border-radius: 8px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: #FFFFFF;
+                    cursor: pointer;
+                }
+                
+                .ArticleSection2 {
+                    display: inline-flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    gap: 185px;
+                    position: relative;
+                }
+                
+                .article-section-2-content {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    gap: 24px;
+                    position: relative;
+                }
+                
+                .articleImage {
+                    width: 830px;
+                    height: 556px;
+                }
+                
+                .imgArticle {
+                    display: inline-flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    gap: 185px;
+                }
+                
+                .productSection {
+                    width: 100%;
+                    height: 100%;
+                    position: relative;
+                    background: var(--background-color);
+                    padding: 100px 0;
+                }
+                
+                .productSection .product-section-content {
+                    width: 1680px;
+                    height: 110px;
+                    position: relative;
+                    margin: 0 auto;
+                    /* Center the content */
+                }
+                
+                .subtitle {
+                    color: var(--black, #3F3F3F);
+                    text-align: right;
+                    /* h1 desktop */
+                    font-family: "Almoni Tzar DL 4.0 AAA";
+                    font-size: 100px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 75%;
+                    /* 75px */
+                }
+                
+                .support-description {
+                    color: var(--black, #3F3F3F);
+                    text-align: right;
+                    /* body text */
+                    font-size: 17px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 135%;
+                    /* 22.95px */
+                    letter-spacing: 0.17px;
+                }
+                
+                .productSection {
+                    width: 100%;
+                    height: 100%;
+                    position: relative;
+                    background: linear-gradient(0deg, #FDFDFD 0%, #FDFDFD 100%);
+                }
+                
+                .product-section-content {
+                    width: 1680px;
+                    height: auto;
+                    position: absolute;
+                    left: 120px;
+                    bottom: 10px;
+                }
+                
+                .articleSubTitle,
+                .articleTitle {
+                    text-align: right;
+                    color: #3F3F3F;
+                    word-wrap: break-word;
+                }
+                
+                .articleSubTitle {
+                    font-size: 100px;
+                    font-family: Almoni Tzar DL 4.0 AAA;
+                    font-weight: 500;
+                    line-height: 75px;
+                }
+                
+                .articleTitle {
+                    font-size: 17px;
+                    font-family: Almoni Neue DL 4.0 AAA;
+                    font-weight: 400;
+                    line-height: 22.95px;
+                    letter-spacing: 0.17px;
+                }
+                
+                .arrowContainer {
+                    width: 50px;
+                    height: 50px;
+                    position: absolute;
+                    top: 60px;
+                    background: #E93380;
+                    border-radius: 66.67px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                
+                .product {
+                    display: inline-flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    gap: 24px;
+                    position: absolute;
+                    width: 405px;
+                    height: 433px;
+                    border-radius: 8px;
+                    overflow: hidden;
+                    background: #EBEAE4;
+                    /* Background color for the product */
+                }
+                
+                .product img {
+                    width: 100%;
+                    height: auto;
+                    /* Adjust this as needed */
+                }
+                
+                .ShopingpBagIcon {
+                    width: 48px;
+                    height: 48px;
+                    position: absolute;
+                    left: 20px;
+                    top: 20px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background: linear-gradient(0deg, #FDFDFD 0%, #FDFDFD 100%);
+                    border-radius: 9999px;
+                }
+                
+                .btnBuy {
+                    padding: 8px 16px;
+                    background: #E93380;
+                    color: white;
+                    border-radius: 4px;
+                    font-size: 17px;
+                    font-weight: 700;
+                    line-height: 22.95px;
+                    letter-spacing: 0.17px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: absolute;
+                    left: 311px;
+                    /* Adjust based on your layout */
+                    top: 20px;
+                }
+                
+                .productTitle {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    gap: 24px;
+                }
+                
+                .productTitle div {
+                    text-align: right;
+                    color: #3F3F3F;
+                    font-size: 40px;
+                    font-family: 'Almoni Tzar DL 4.0 AAA';
+                    font-weight: 500;
+                    line-height: 34px;
+                    word-wrap: break-word;
+                }
+                
+                .purchase {
+                    padding-bottom: 5px;
+                    border-bottom: 1.50px solid #E93380;
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    gap: 8px;
+                }
+                
+                .promoBanner-content {
+                    display: flex;
+                    align-items: center;
+                    gap: 50px;
+                }
+                
+                .promoBanner img {
+                    width: 932px;
+                    height: 250px;
+                    border-radius: 8px;
+                    object-fit: cover;
+                }
+                
+                .promoBanner .promo-content {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    gap: 16px;
+                }
+                
+                .promoBanner .promo-title {
+                    text-align: right;
+                    color: var(--secondary-color);
+                    font-size: 60px;
+                    font-family: var(--font-family-medium);
+                    font-weight: 500;
+                    line-height: 51px;
+                }
+                
+                .promoBanner .promo-actions {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                }
+                
+                .promoBanner .register-btn {
+                    width: 185px;
+                    height: 50px;
+                    background: var(--primary-color);
+                    border-radius: 8px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: white;
+                    font-size: 17px;
+                    font-weight: 700;
+                    letter-spacing: 0.17px;
+                    cursor: pointer;
+                    transition: background-color 0.3s ease;
+                }
+                
+                .promoBanner .register-btn:hover {
+                    background: #d62a72;
+                    /* Darker shade on hover */
+                }
+                
+                .promoBanner .email-input {
+                    width: 325px;
+                    padding: 20px 12px;
+                    background: #FDFDFD;
+                    border-radius: 8px;
+                    font-size: 15px;
+                    color: #656565;
+                    font-family: var(--font-family-base);
+                    border: 1px solid var(--border-color);
+                    transition: border-color 0.3s ease;
+                }
+                
+                .promoBanner .email-input:focus {
+                    outline: none;
+                    border-color: var(--primary-color);
+                }
+                /* Promo Consent Styles */
+                
+                .promo-consent {
+                    margin-top: 10px;
+                }
+                
+                .promo-consent label {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    font-size: 15px;
+                    color: var(--secondary-color);
+                    font-family: var(--font-family-regular);
+                }
+                /* Footer Styles (if needed) */
+                /* 1. Root Variables */
+                
+                 :root {
+                    --white: #FDFDFD;
+                    --black: #3F3F3F;
+                    --font-family: "Almoni Neue DL 4.0 AAA", sans-serif;
+                }
+                /* 2. Footer Styling */
+                /* 1. Root Variables */
+                
+                 :root {
+                    --white: #FDFDFD;
+                    --black: #3F3F3F;
+                    --font-family: "Almoni Neue DL 4.0 AAA", sans-serif;
+                }
+                /* 2. Footer Styling */
+                
+                .footer {
+                    background: var(--black, #3F3F3F);
+                    color: var(--white, #FDFDFD);
+                    padding: 40px 20px;
+                    /* Adjusted padding for better spacing */
+                    box-sizing: border-box;
+                    direction: rtl;
+                    /* Right-to-left layout for Hebrew */
+                }
+                /* 3. Footer Container Flexbox */
+                
+                .footer-container {
+                    display: flex;
+                    justify-content: flex-end;
+                    /* Align sections to the end (right) */
+                    align-items: flex-start;
+                    /* Align sections to the top */
+                    gap: 30px;
+                    /* Reduced space between columns */
+                    flex-wrap: wrap;
+                    /* Allow wrapping on smaller screens */
+                    max-width: 1000px;
+                    /* Adjusted max-width for compactness */
+                    margin-left: auto;
+                    /* Push the container to the right */
+                    margin-right: 0;
+                    /* Ensure no right margin */
+                    padding: 0;
+                    /* Remove padding if previously set */
+                }
+                /* 4. Footer Sections */
+                
+                .footer-section {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: flex-end;
+                    /* Align items to the right */
+                    gap: 24px;
+                    /* Space between title and links */
+                    flex: 1 1 200px;
+                    /* Flexible width for responsiveness */
+                }
+                /* 5. Footer Titles */
+                
+                .footer-title {
+                    font-family: var(--font-family);
+                    font-size: 19px;
+                    font-weight: 700;
+                    line-height: 22.8px;
+                    letter-spacing: 0.19px;
+                    text-align: center;
+                    /* Center the text within the <h3> */
+                    align-self: center;
+                    /* Center the <h3> within the Flex container */
+                    margin: 0;
+                    /* Remove default margins */
+                    color: var(--white, #FDFDFD);
+                }
+                /* 6. Footer Links and Contact Info */
+                
+                .footer-links,
+                .footer-contact-info {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    /* Align links to the right */
+                    gap: 20px;
+                    /* Space between links */
+                    list-style: none;
+                    /* Remove default list styling */
+                    padding: 0;
+                    /* Remove default padding */
+                    margin: 0;
+                    /* Remove default margin */
+                }
+                /* 7. Footer Link Items */
+                
+                .footer-links li,
+                .footer-contact-info li {
+                    width: 100%;
+                }
+                /* 8. Footer Links (a) */
+                
+                .footer-link {
+                    font-family: var(--font-family);
+                    font-size: 17px;
+                    font-weight: 400;
+                    line-height: 22.95px;
+                    letter-spacing: 0.17px;
+                    text-decoration: none;
+                    /* Remove underline */
+                    color: var(--white, #FDFDFD);
+                    word-wrap: break-word;
+                    text-align: right;
+                }
+                /* 9. Footer Links Hover Effect */
+                
+                .footer-link:hover {
+                    text-decoration: underline;
+                    /* Underline on hover for better UX */
+                }
+                /* 10. Footer Contact Info */
+                
+                .footer-contact-info li {
+                    font-family: var(--font-family);
+                    font-size: 17px;
+                    font-weight: 400;
+                    line-height: 22.95px;
+                    letter-spacing: 0.17px;
+                    word-wrap: break-word;
+                    text-align: right;
+                }
+                /* 11. Footer Bottom */
+                
+                .footer-bottom {
+                    background: var(--black, #3F3F3F);
+                    text-align: center;
+                    padding: 10px 0;
+                    color: var(--white, #FDFDFD);
+                    font-family: var(--font-family);
+                    font-size: 16px;
+                    line-height: 1.5;
+                }
+                /* 12. Responsive Adjustments */
+                /* Medium Screens (Tablets) */
+                
+                @media (max-width: 1024px) {
+                    .footer-container {
+                        gap: 20px;
+                        /* Further reduce spacing between columns */
+                        max-width: 800px;
+                        /* Adjust max-width for medium screens */
+                    }
+                }
+                /* Small Screens (Mobiles) */
+                
+                @media (max-width: 768px) {
+                    .footer-container {
+                        flex-direction: column;
+                        /* Stack sections vertically */
+                        align-items: center;
+                        /* Center align sections */
+                        gap: 30px;
+                        /* Adjust gap for small screens */
+                        max-width: 100%;
+                        /* Allow full width on small screens */
+                    }
+                    .footer-section {
+                        align-items: center;
+                        /* Center align content */
+                    }
+                    .footer-title,
+                    .footer-link,
+                    .footer-contact-info li {
+                        text-align: center;
+                        /* Center text on smaller screens */
+                    }
+                }
+                /* 13. Accessibility Enhancements */
+                /* Focus States for Links */
+                
+                .footer-link:focus {
+                    outline: 2px dashed var(--white, #FDFDFD);
+                    outline-offset: 4px;
+                }
